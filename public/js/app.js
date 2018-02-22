@@ -977,10 +977,11 @@ window.Vue = __webpack_require__(35);
 
 var MyHeader = __webpack_require__(53);
 var MyFooter = __webpack_require__(55);
+var Home = __webpack_require__(57);
 
 var app = new Vue({
     el: '#app',
-    components: { MyHeader: MyHeader, MyFooter: MyFooter }
+    components: { MyHeader: MyHeader, MyFooter: MyFooter, Home: Home }
 });
 
 /***/ }),
@@ -40826,6 +40827,164 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-66e2595e", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(39)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-85ef4954", Component.options)
+  } else {
+    hotAPI.reload("data-v-85ef4954", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { staticClass: "panel" }, [
+      _c("p", { staticClass: "panel-heading" }, [
+        _vm._v("\n    repositories\n  ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-block" }, [
+        _c("p", { staticClass: "control has-icons-left" }, [
+          _c("input", {
+            staticClass: "input is-small",
+            attrs: { type: "text", placeholder: "search" }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "icon is-small is-left" }, [
+            _c("i", { staticClass: "fas fa-search" })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "panel-tabs" }, [
+        _c("a", { staticClass: "is-active" }, [_vm._v("all")]),
+        _vm._v(" "),
+        _c("a", [_vm._v("public")]),
+        _vm._v(" "),
+        _c("a", [_vm._v("private")]),
+        _vm._v(" "),
+        _c("a", [_vm._v("sources")]),
+        _vm._v(" "),
+        _c("a", [_vm._v("forks")])
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block is-active" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-book" })
+        ]),
+        _vm._v("\n    bulma\n  ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-book" })
+        ]),
+        _vm._v("\n    marksheet\n  ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-book" })
+        ]),
+        _vm._v("\n    minireset.css\n  ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-book" })
+        ]),
+        _vm._v("\n    jgthms.github.io\n  ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-code-branch" })
+        ]),
+        _vm._v("\n    daniellowtw/infboard\n  ")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "panel-block" }, [
+        _c("span", { staticClass: "panel-icon" }, [
+          _c("i", { staticClass: "fas fa-code-branch" })
+        ]),
+        _vm._v("\n    mojs\n  ")
+      ]),
+      _vm._v(" "),
+      _c("label", { staticClass: "panel-block" }, [
+        _c("input", { attrs: { type: "checkbox" } }),
+        _vm._v("\n    remember me\n  ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-block" }, [
+        _c(
+          "button",
+          { staticClass: "button is-link is-outlined is-fullwidth" },
+          [_vm._v("\n      reset all filters\n    ")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
   }
 }
 
