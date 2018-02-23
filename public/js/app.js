@@ -43607,7 +43607,10 @@ var Show = __webpack_require__(62);
 
       if (this.searchQuery.length > 0) {
         this.temps = this.lists.filter(function (item) {
-          return item.name.toLowerCase().indexOf(_this.searchQuery.toLowerCase()) > -1;
+          return Object.keys(item).some(function (key) {
+            var filter = String(item[key]);
+            return filter.toLowerCase().indexOf(_this.searchQuery.toLowerCase()) > -1;
+          });
         });
       } else {
         this.temps = this.lists;

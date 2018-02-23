@@ -67,7 +67,10 @@
       searchQuery(){        
         if (this.searchQuery.length>0) {
           this.temps = this.lists.filter((item) => {
-            return item.name.toLowerCase().indexOf(this.searchQuery.toLowerCase())>-1
+            return Object.keys(item).some((key) => {
+              let filter = String(item[key])
+              return filter.toLowerCase().indexOf(this.searchQuery.toLowerCase())>-1
+            })            
           });
         } else {
           this.temps = this.lists;
