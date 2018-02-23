@@ -42,9 +42,14 @@ class PhonebookController extends Controller
         //
     }
 
-    public function update(Request $request, Phonebook $phonebook)
+    public function update(PhonebookRequest $request)
     {
-        //
+        $pb = Phonebook::find($request->id);
+        $pb->name = $request->name;
+        $pb->phone = $request->phone;
+        $pb->email = $request->email;
+        $pb->save();
+        //return $pb->all();
     }
 
     public function destroy(Phonebook $phonebook)

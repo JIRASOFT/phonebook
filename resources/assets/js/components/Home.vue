@@ -22,7 +22,7 @@
           <i class="has-text-danger fa fa-trash" aria-hidden="true"></i>
         </span>
         <span class="panel-icon column is-1">
-          <i class="has-text-info fa fa-edit" aria-hidden="true"></i>
+          <i class="has-text-info fa fa-edit" aria-hidden="true" @click="openUpdate(key)"></i>
         </span>
         <span class="panel-icon column is-1">
           <i class="has-text-primary fa fa-eye" aria-hidden="true" @click="openShow(key)"></i>
@@ -31,6 +31,7 @@
     </nav>
 
     <Add :openmodal='addActive' @closeModal='close'></Add>
+    <Update :openmodal='updateActive' @closeModal='close'></Update>
     <Show :openmodal='showActive' @closeModal='close'></Show>
   </div>
 
@@ -38,12 +39,14 @@
 
 <script>
   let Add = require('./Add.vue')
+  let Update = require('./Update.vue')
   let Show = require('./Show.vue')
 
   export default {
     data() {
       return {
         addActive: '',
+        updateActive: '',
         showActive: '',
         lists: {},        
         errors: {}
@@ -51,6 +54,7 @@
     },
     components: {
       Add,
+      Update,
       Show
     },
     mounted() {
@@ -62,13 +66,17 @@
       openAdd() {
         this.addActive = 'is-active';
       },
-      openShow(key) {
-        //console.log(this.$children);
+      openUpdate(key) {
         this.$children[1].list = this.lists[key];
+        this.updateActive = 'is-active';
+      },
+      openShow(key) {
+        this.$children[2].list = this.lists[key];
         this.showActive = 'is-active';
       },
       close() {
         this.addActive = '';
+        this.updateActive = '';
         this.showActive = '';
       }
     }

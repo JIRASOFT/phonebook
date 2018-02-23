@@ -2,7 +2,8 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="http://company.meeguyang.com">
-                <img src="" alt="3S-Phonebook" width="122" height="28">
+                <!-- <img src="" alt="3S-Phonebook" width="122" height="28"> -->
+                <p><b>3S-Phonebook</b></p>
             </a>
 
             <div class="navbar-menu is-active">
