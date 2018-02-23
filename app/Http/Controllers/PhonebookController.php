@@ -51,7 +51,8 @@ class PhonebookController extends Controller
         $pb->phone = $request->phone;
         $pb->email = $request->email;
         $pb->save();
-        //return $pb->all();
+        //-- return
+        //return $pb;
     }
 
     public function destroy(Phonebook $phonebook)

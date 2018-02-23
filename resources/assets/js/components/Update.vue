@@ -48,8 +48,16 @@
         },
         methods: {
             update() {
-                axios.put(`/phonebook/${ this.list.id }`, this.$data.list).then((response) => this.close() )
-                    .catch((error) => this.errors = error.response.data )
+                axios.put(`/phonebook/${ this.list.id }`, this.$data.list).then((response) => {
+                    this.close();                    
+                    this.$parent.lists.sort(function(a, b){
+                        if (a.name > b.name) {
+                            return 1;
+                        } else if (a.name < b.name) {
+                            return -1;
+                        }
+                    });
+                }).catch((error) => this.errors = error.response.data )
             },
             close() {
                 this.$emit('closeModal')
