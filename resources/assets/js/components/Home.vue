@@ -4,6 +4,9 @@
       <p class="panel-heading">
         <b>Phonebook(Laravel + Vue.js)</b>
         <button class="button is-primary is-outlined" @click="openAdd">Add New</button>
+        <span class="is-pulled-right" v-if="loading">
+          <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+        </span>        
       </p>
       <div class="panel-block">
         <p class="control has-icons-left">
@@ -19,7 +22,7 @@
           {{ item.name }}
         </span>
         <span class="panel-icon column is-1">
-          <i class="has-text-danger fa fa-trash" aria-hidden="true"></i>
+          <i class="has-text-danger fa fa-trash" aria-hidden="true" @click="del(key, item.id)"></i>
         </span>
         <span class="panel-icon column is-1">
           <i class="has-text-info fa fa-edit" aria-hidden="true" @click="openUpdate(key)"></i>
@@ -48,8 +51,9 @@
         addActive: '',
         updateActive: '',
         showActive: '',
-        lists: {},        
-        errors: {}
+        lists: {},
+        errors: {},
+        loading: false
       }
     },
     components: {
@@ -59,16 +63,24 @@
     },
     mounted() {
       axios.post('/getData')
-        .then((response) => this.lists = response.data )
-        .catch((error) => this.errors = error.response.data )
+        .then((response) => this.lists = response.data)
+        .catch((error) => this.errors = error.response.data)
     },
-    methods:{
+    methods: {
       openAdd() {
         this.addActive = 'is-active';
       },
       openUpdate(key) {
         this.$children[1].list = this.lists[key];
         this.updateActive = 'is-active';
+      },
+      del(key, id) {        
+        if (confirm("Are you sure ?")) {
+          this.loading = !this.loading;
+          axios.delete(`/phonebook/${id}`)
+            .then((response) => {this.lists.splice(key, 1); this.loading = !this.loading;})
+            .catch((error) => {this.errors = error.response.data; this.loading = !this.loading;})
+        }
       },
       openShow(key) {
         this.$children[2].list = this.lists[key];
