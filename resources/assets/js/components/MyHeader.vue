@@ -1,17 +1,13 @@
 <template>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="" alt="Phonebook" width="112" height="28">
+            <a class="navbar-item" href="http://company.meeguyang.com">
+                <img src="" alt="3S-Phonebook" width="122" height="28">
             </a>
 
             <div class="navbar-menu is-active">
-                <a class="navbar-item" href="">
-                    Home
-                </a>
-                <a class="navbar-item" href="">
-                    About
-                </a>
+                <router-link class="navbar-item" to="/home">Home</router-link>
+                <router-link class="navbar-item" to="/about">About</router-link>                
             </div>  
             
             <div class="navbar-burger">
