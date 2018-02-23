@@ -14,9 +14,9 @@
         </p>
       </div>
 
-      <a class="panel-block" v-for="(item, key) in lists">
+      <a class="panel-block" v-for="(item, key) in lists" :key="item.id">
         <span class="column is-9">
-          [{{ key+1 }}] {{ item.name }}
+          {{ item.name }}
         </span>
         <span class="panel-icon column is-1">
           <i class="has-text-danger fa fa-trash" aria-hidden="true"></i>
@@ -25,30 +25,33 @@
           <i class="has-text-info fa fa-edit" aria-hidden="true"></i>
         </span>
         <span class="panel-icon column is-1">
-          <i class="has-text-primary fa fa-eye" aria-hidden="true"></i>
+          <i class="has-text-primary fa fa-eye" aria-hidden="true" @click="openShow(key)"></i>
         </span>
       </a>
     </nav>
 
-    <add :openmodal='addActive' @closeModal='close'></add>
+    <Add :openmodal='addActive' @closeModal='close'></Add>
+    <Show :openmodal='showActive' @closeModal='close'></Show>
   </div>
 
 </template>
 
 <script>
   let Add = require('./Add.vue')
+  let Show = require('./Show.vue')
 
   export default {
     data() {
       return {
         addActive: '',
         showActive: '',
-        lists: {},
+        lists: {},        
         errors: {}
       }
     },
     components: {
-      Add
+      Add,
+      Show
     },
     mounted() {
       axios.post('/getData')
@@ -59,11 +62,14 @@
       openAdd() {
         this.addActive = 'is-active';
       },
-      openShow() {
+      openShow(key) {
+        //console.log(this.$children);
+        this.$children[1].list = this.lists[key];
         this.showActive = 'is-active';
       },
       close() {
         this.addActive = '';
+        this.showActive = '';
       }
     }
   }
